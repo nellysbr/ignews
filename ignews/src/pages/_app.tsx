@@ -6,11 +6,16 @@ import { AppProps } from 'next/app';
 import '../../styles/global.scss';
 import { Header } from '../components/Header';
 
-function MyApp({ Component, pageProps }: AppProps) {
+import { SessionProvider } from 'next-auth/react';
+
+
+function MyApp({ Component, pageProps, session }) {
   return(  
   <>
-    <Header />
-    <Component {...pageProps} /> 
+    <SessionProvider session={session} refetchInterval={5 * 60}>
+      <Header />
+      <Component {...pageProps} />
+    </SessionProvider> 
      
   </>
 
