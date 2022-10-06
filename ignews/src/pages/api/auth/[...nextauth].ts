@@ -11,9 +11,6 @@ export const authOptions = {
       authorization: {
         params: {scope: "read:user"},
       }
-      
-      
-      
     
       
     }),
